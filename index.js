@@ -250,7 +250,7 @@ const artists = [
     
 
 
-console.log(get20s(artists));
+// console.log(get20s(artists));
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
@@ -287,9 +287,9 @@ function addArtist(array, id, name, years, genre, nationality, bio){
     return array.push({id, name, years, genre, nationality, bio});
   }
 
-  console.log(addArtist(artists, 20, "Carlos Ramos", "1994 - 08/29/2020", "Web Design", "Hispanic", "Lorem Ipsum is simply dummy text of the printing and typesetting industry."));
+  // console.log(addArtist(artists, 20, "Carlos Ramos", "1994 - 08/29/2020", "Web Design", "Hispanic", "Lorem Ipsum is simply dummy text of the printing and typesetting industry."));
 
-  console.log(artists);
+  // console.log(artists);
   
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -299,13 +299,19 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
 
-  /* Code here */
+function lotsOfArt(array){
+  let names = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].paintings > 100){
+      names.push(array[i].name);
+    }
+  }
+  return names;
 
 }
 
-
+console.log(lotsOfArt(artists));
 
 // 🎨🎨 STRETCH 🎨🎨//
 
