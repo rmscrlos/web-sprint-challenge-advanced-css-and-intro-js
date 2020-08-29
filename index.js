@@ -229,17 +229,28 @@ const artists = [
       return `The artist at index ${index} is ${array[index].name}`
     }
 
-    console.log(getArtistByIndex(artists, 8));
+    // console.log(getArtistByIndex(artists, 8));
     /**
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/* Code here */){
+  function get20s(array){
+    let names = [];
+    for(let i = 0; i < array.length; i++){
+      birthYear = array[i].years.slice(0, 4);
+      deathYear = array[i].years.slice(-4);
 
-  /* Code here */
+      if (birthYear >= "1900" && deathYear <= "2000"){
+        names.push(array[i].name);
+      }
+    }
+    return names;
+  }
+    
 
-}
+
+console.log(get20s(artists));
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
@@ -252,11 +263,12 @@ function get20s(/* Code here */){
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
-    /* code here */
-  }
-  
- 
+  function removeArtist(array, num) {
+      return array.splice(num, 1);
+    }
+    
+  // console.log(removeArtist(artists, 8));
+  // console.log(artists.length, artists);
 
 /**
 /* Task 6: Create a function called `addArtist` that can accept an object of information and add it to the artists array. Then, add a 21st artist to the array (you) with custom information!👩‍🎨👨‍🎨
@@ -271,12 +283,14 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/* Code here */){
-
-    /* Code here */
-
+function addArtist(array, id, name, years, genre, nationality, bio){
+    array.push(id, name, years, genre, nationality, bio);
   }
 
+  console.log(addArtist(artists, 20, "Carlos Ramos", "1994 - 08/29/2020", "Web Design", "Hispanic", "Lorem Ipsum is simply dummy text of the printing and typesetting industry."));
+
+  // console.log(artists);
+  
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
     (1) artists array 
